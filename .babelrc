@@ -1,0 +1,5 @@
+{
+    "presets": ["@remix-run/babel-preset-remix"],
+    "plugins": ["@emotion/babel-plugin"]
+  }
+  
