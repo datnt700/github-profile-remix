@@ -1,7 +1,7 @@
 import { Header } from './layout/Header';
 import { Profile } from './layout/Profile';
 import { useEffect, useState } from 'react';
-import { UserRepository } from '~/helpers/user-interface';
+import { UserRepository } from '~/types/user-interface';
 import { Repository } from './layout/Repository';
 import { Container, Content } from '../styles/styles';
 
@@ -19,19 +19,19 @@ const HomeComponent = () => {
   const [text, setText] = useState('');
   const [profileActive, setProfileActive] = useState(false);
   const [infoActive, setInfoActive] = useState(false);
-  const [data, setData] = useState(defaultUserData);
-  const [dataRepository, setDataRepository] = useState<UserRepository[]>([]);
+  const [userData, setUserData] = useState(defaultUserData);
+  const [repositories, setRepositories] = useState<UserRepository[]>([]);
   const [repositoryLimit, setRepositoryLimit] = useState<number>(4);
   const handleSearch = async () => {
     try {
       const response = await fetch(`https://api.github.com/users/${text}`, {});
-      const result = await response.json();
-      if (result.message === 'Not Found') {
-        setData(defaultUserData);
+      if (response.status === 404) {
+        setUserData(defaultUserData);
         setProfileActive(false);
       } else {
+        const result = await response.json();
         setProfileActive(true);
-        setData(result);
+        setUserData(result);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -44,7 +44,7 @@ const HomeComponent = () => {
         `https://api.github.com/users/${text}/repos`
       );
       const repos = await response.json();
-      setDataRepository(repos);
+      setRepositories(repos);
       setProfileActive(false);
       setInfoActive(true);
     } catch (error) {
@@ -63,24 +63,24 @@ const HomeComponent = () => {
     <Container>
       <Header
         setText={setText}
-        avatarUrl={data.avatar_url}
-        bio={data.bio}
-        name={data.name}
+        avatarUrl={userData.avatar_url}
+        bio={userData.bio}
+        name={userData.name}
         profileActive={profileActive}
         showProfile={showProfile}
       />
       <Content>
         <Profile
-          avatarUrl={data.avatar_url}
-          follower={data.follower}
-          following={data.following}
-          location={data.location}
-          name={data.name}
-          bio={data.bio}
+          avatarUrl={userData.avatar_url}
+          follower={userData.follower}
+          following={userData.following}
+          location={userData.location}
+          name={userData.name}
+          bio={userData.bio}
           infoActive={infoActive}
         />
         <Repository
-          dataRepository={dataRepository}
+          dataRepository={repositories}
           repositoryLimit={repositoryLimit}
           setRepositoryLimit={setRepositoryLimit}
         />
