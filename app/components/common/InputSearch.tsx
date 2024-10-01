@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { inputSearchCss } from './InputSearch-Style';
+import { inputSearchCss } from './InputSearch.style';
 interface inputSearchProps {
   handleInput: (e: ChangeEvent<HTMLInputElement>) => void;
 }

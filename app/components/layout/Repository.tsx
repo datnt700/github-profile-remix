@@ -1,6 +1,6 @@
 import { UserRepository } from '~/types/user-interface';
 import { RepositoryItem } from '../common/RepositoryItem';
-import { RepositoryCss } from './Repository-Style';
+import { RepositoryCss } from './Repository.style';
 
 interface RepositoryProps {
   dataRepository: UserRepository[] | [];

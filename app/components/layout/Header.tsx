@@ -1,4 +1,4 @@
-import { headerCss } from './Header-Style';
+import { headerCss } from './Header.style';
 import { css } from '@emotion/react';
 import { InputSearch } from '../common/InputSearch';
 import { ChangeEvent } from 'react';

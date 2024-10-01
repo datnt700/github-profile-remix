@@ -1,4 +1,4 @@
-import { profileCss } from './ProfileDetail-Style';
+import { profileCss } from './ProfileDetail.style';
 
 export const ProfileDetail = ({
   label,

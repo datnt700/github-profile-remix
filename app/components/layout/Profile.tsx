@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { profileCss } from './Profile-Style';
+import { profileCss } from './Profile.style';
 import { ProfileDetail } from '../common/ProfileDetail';
 
 interface ProfileProps {

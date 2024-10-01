@@ -1,4 +1,4 @@
-import { RepositoryItemCss } from './RepositoryItem-Style';
+import { RepositoryItemCss } from './RepositoryItem.style';
 
 interface RepositoryItemProps {
   name: string;
