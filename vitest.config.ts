@@ -7,6 +7,6 @@ export default defineConfig({
     globals: true,
     setupFiles: './vitest.setup.ts',
     include: ['tests/unit/**/*.test.tsx'], // Only run Vitest on unit tests
-    exclude: ['tests/e2e/**/*'], // Exclude Playwright E2E tests
+    exclude: ['node_modules', '**/*.spec.ts', '**/*.test.ts', '**/tests/e2e'], // Exclude Playwright E2E tests
   },
 });
