@@ -48,7 +48,7 @@ const headerCss = {
 };
 
 interface HeaderProps {
-  setText: (e) => void;
+  setText: (e: string) => void;
   avatarUrl: string;
   bio: string;
   name: string;

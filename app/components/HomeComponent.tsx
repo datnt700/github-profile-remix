@@ -1,22 +1,9 @@
-import styled from '@emotion/styled';
 import { Header } from './layout/Header';
 import { Profile } from './layout/Profile';
 import { useEffect, useState } from 'react';
 import { UserRepository } from '~/helpers/user-interface';
 import { Repository } from './layout/Repository';
-const Container = styled.div`
-  background-color: #20293a;
-`;
-
-const Content = styled.div`
-  padding: 0 1rem 1rem;
-  max-width: 1500px;
-  margin: 0 auto;
-
-  @media (min-width: 1024px) {
-    padding: 0 5rem 1rem;
-  }
-`;
+import { Container, Content } from '../styles/styles';
 
 const defaultUserData = {
   avatar_url: '',

@@ -61,7 +61,7 @@ describe('Repository Item Component', () => {
         watchers={mockWatchers}
         license={{ name: null }}
         htmlUrl={undefined}
-        updateAt={undefined}
+        updateAt={''}
       />
     );
     const licenseField = screen.queryByText('MIT');
